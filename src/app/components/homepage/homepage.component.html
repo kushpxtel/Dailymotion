@@ -1,0 +1,22 @@
+<body>
+<div class="fn">
+    <input type="text" id="fname" name="fname" #fname >&nbsp;&nbsp;
+    <button type="button" id="getvid" (click)="searchBtn(fname.value)">Get Videos</button>
+</div>
+
+<table class="content" *ngFor = "let u of outAny" style="width: 100%;">
+    <tr style="background-color: rgb(238, 236, 236);">
+        <th><img src = {{u.thumbnail_360_url}}></th>
+        <th><a href="https://www.dailymotion.com/video/{{u.id}}" target="_blank">{{u.title}}</a><br>
+            <img id="dp" src="{{u['owner.avatar_80_url']}}"> <p>{{u["owner.username"]}}</p>
+    
+            <p>Date posted: {{u.created_time * 1000 | date}} | Total views: {{u.views_total}}</p>
+          
+            <button (click)="myPlaylistBtn()" class="playlist" [disabled]="(vidPresent === true)" >Add to playlist</button>
+        </th>
+    </tr>
+   
+</table>
+</body>
+
+

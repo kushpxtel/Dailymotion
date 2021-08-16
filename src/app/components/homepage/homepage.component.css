@@ -1,0 +1,29 @@
+.fn{
+    margin-top: 1%;
+    margin-left: 40%;
+}
+
+.content{
+    padding-top: 20px;
+    
+}
+
+img {
+    height: 320px;
+    width: 510px;
+    padding: 20px;
+}
+
+a{
+    font-size: large;
+}
+
+#dp {
+    height: 50px;
+    width: 50px;
+    border-radius: 80px;
+}
+
+.playlist {
+    background-color: aqua;
+}

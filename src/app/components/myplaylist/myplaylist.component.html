@@ -1,0 +1,15 @@
+<h1>Your Playlist</h1>
+
+
+
+<!-- <p *ngIf="currPlaylist.length === 0; else playlist">
+    There are no videos in your playlist
+</p>
+
+<ng-template #playlist>
+    <button (click)="GetVideoBtn()"> Get videos</button>
+</ng-template>
+<button (click)="GetVideoBtn">Get Videos</button> -->
+<p>
+    {{currPlaylist | json}}
+</p>
