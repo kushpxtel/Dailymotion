@@ -1,7 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output} from '@angular/core';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { UserDataService } from 'src/app/user-data.service';
 import User from 'src/app/models/User';
+import { PlaylistService } from 'src/app/playlist.service';
+
 
 @Component({
   selector: 'app-myplaylist',
@@ -9,18 +11,25 @@ import User from 'src/app/models/User';
   styleUrls: ['./myplaylist.component.css']
 })
 export class MyplaylistComponent implements OnInit {
-
-  currPlaylist:User[] = []
+  @Input() currentVid:User = {} as User
+  @Output() currPlaylist:User[] = []
   info:string = "" 
-  constructor(private data:UserDataService) { }
+  constructor(private add:PlaylistService) { }
 
   ngOnInit(): void {
   }
   
 
-  // GetVideoBtn = () => {
-  //   this.currPlaylist = this.data.getPlaylist()
-  //   console.log(this.currPlaylist)
+  GetVideoBtn = () => {
+    this.currPlaylist = this.add.getPlaylist()
+    console.log(this.currPlaylist)
+  }
+
+  Clear(){
+    this.add.removeAll()
+  }
+  // getPlay = () => {
+  //   return this.currPlaylist = this
   // }
 
 }

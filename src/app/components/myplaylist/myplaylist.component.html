@@ -1,15 +1,27 @@
 <h1>Your Playlist</h1>
-
-
-
-<!-- <p *ngIf="currPlaylist.length === 0; else playlist">
+<div>
+<p>{{GetVideoBtn ()}}</p>
+ 
+ <p *ngIf="currPlaylist.length === 0; else playlist">
     There are no videos in your playlist
-</p>
-
+</p> 
 <ng-template #playlist>
-    <button (click)="GetVideoBtn()"> Get videos</button>
+    <button class="clearbtn" (click)="Clear()">Clear Playlist</button>
 </ng-template>
-<button (click)="GetVideoBtn">Get Videos</button> -->
-<p>
-    {{currPlaylist | json}}
-</p>
+</div>
+
+
+
+<table  *ngFor = "let u of currPlaylist" class="content"  style="width: 100%;">
+    <tr style="background-color: rgb(238, 236, 236);">
+        <th><img src = {{u.thumbnail_360_url}}></th>
+        <th><a href="https://www.dailymotion.com/video/{{u.id}}" target="_blank">{{u.title}}</a><br>
+            <img id="dp" src="{{u['owner.avatar_80_url']}}"> <p>{{u["owner.username"]}}</p>
+    
+            <p>Date posted: {{u.created_time * 1000 | date}} | Total views: {{u.views_total}}</p>
+          
+           
+        </th>
+    </tr>
+   
+</table>
